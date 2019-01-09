@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Video Conferencia</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/estilos.css" rel="stylesheet" />
+    <link href="css/slide.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <iframe src="" id="frameVideo" width="100%" allow="geolocation;microphone;camera;midi;encrypted-media"></iframe>
+            </div>
+        </nav>
+        <div id="content" class="fondo">
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="video" class="col-lg-12 d-flex flex-column align-items-center justify-content-center"
+                        style="text-align:center">
+                        <h1>Video Conferencia</h1>
+                        <a id="sidebarCollapse" href="javascript:void(0)">
+                            <img id="icono" src="img/face.png" class="sombra" title="iniciar una video llamada" />
+                        </a>
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <h4>Unity Promotores Corredores de seguros.</h4>
+                                </div>
+                                <div class="carousel-item">
+                                    <h4>Puedes hacer una video llamada para comunicarte con nosotros.</h4>
+                                </div>
+                                <div class="carousel-item">
+                                    <h4>Estamos para servirte y asesorarte ante cualquier duda.</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+
+        setTimeout(() => {
+            $("#frameVideo").attr('style', 'height:' + (window.innerHeight - 36) + 'px');
+            $('#sidebar').toggleClass('active');
+            $("#video").attr('style', 'height:' + (window.innerHeight - 36) + 'px');
+
+        }, 500);
+
+        $('#sidebarCollapse').on('click', function (e) {
+            $("#frameVideo").attr('src', 'https://getbootstrap.com/');
+
+            if( $("#sidebar").hasClass('active') ){
+                $("#icono").attr("src","img/face-roja.png");
+            }
+
+            else{
+                $("#icono").attr("src","img/face.png");
+                $("#frameVideo").attr('src', '');
+            }
+        });
+    </script>
+</body>
+
+</html>
