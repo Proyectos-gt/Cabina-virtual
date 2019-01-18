@@ -5,7 +5,7 @@
 .sombra {
     -webkit-filter: drop-shadow(5px 5px 5px #222 );
     filter: drop-shadow(5px 5px 21px #222);
-    width: 180px;
+    width: 125px;
 }
 
 .titulo {
@@ -22,9 +22,22 @@ iframe {
 h1, h4{
 color: white;
 text-align: center;
+font-size: 30px;
 }
 
 h4, h1 {
 padding-top: 20px;
 font-family: nunito;
+}
+
+.botones{
+    padding: 10px;
+    padding-left: 45px;
+    padding-right: 45px;
+    font-size: 35px;
+}
+
+
+body{
+    overflow: hidden;
 }

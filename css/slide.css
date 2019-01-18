@@ -27,15 +27,15 @@ a:focus {
 }
 
 #sidebar {
-    min-width: 70%;
-    max-width: 70%;
+    min-width: 75%;
+    max-width: 75%;
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
 }
 
 #sidebar.active {
-    margin-left: -70%;
+    margin-left: -75%;
 }
 
 #sidebar .sidebar-header {
@@ -91,7 +91,7 @@ a[data-toggle="collapse"] {
 
 @media (max-width: 368px) {
     #sidebar {
-        margin-left: -70%;
+        margin-left: -75%;
     }
     #sidebar.active {
         margin-left: 0;
