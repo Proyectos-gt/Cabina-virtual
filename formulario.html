@@ -83,11 +83,11 @@
                             Iniciar Comunicacion
                         </a>
                     </div>
+                    <input id="identificador" name="identificador" style="display:none" >
                 </form>
             </div>
         </div>
     </div>
-    <ul id="log"></ul>
     <div>
         <div class="sidebar-header h-100" style="height:100vh;">
             <iframe id="frameVideo" style="height:100vh;" src="" width="100%" allow="geolocation;microphone;camera;midi;encrypted-media">
@@ -105,23 +105,16 @@
     <script src="js/main.js"></script>
     <script src="js/socket.js"></script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-23581568-13');
+        var fecha = new Date();
+        $("#identificador").val("TE-" + fecha.getDate() + fecha.getSeconds() + fecha.getMilliseconds());
     </script>
     <script>
-       /* $('#enviar').on('click', function (event) {
-            //$("#frameVideo").attr();
+        $('#enviar').on('click', function (event) {
             $("#frameVideo").attr("src", "https://appear.in/unitypromotoresgt");
             $("#formularioUnity").attr("style", "display:none");
-
-            var fecha = new Date();
-            $.post("https://192.168.81.225:9595/api/v1/encuesta/guardar",
+          /* 
+            $.post("http://192.168.81.41:4000/api/clientes",
                 {
                     "table_name": "clientes",
                     "codigo": "TE-" + fecha.getDate() + fecha.getMilliseconds,
@@ -132,16 +125,18 @@
             ).done(function () {
                 setTimeout(
                     function () {
-                        toastr.success('Formulario enviado con exito', 'Excelente!');
+                     //   toastr.success('Formulario enviado con exito', 'Excelente!');
+                     console.log("se guardo correctamente");
                     }, 200);
             })
                 .fail(function () {
                     setTimeout(
                         function () {
-                            toastr.error('No se a podido enviar el formulario', 'Error!');
+                           // toastr.error('No se a podido enviar el formulario', 'Error!');
+                           console.log("error al guardar los datos");
                         }, 200);
-                });
-        });*/
+                });*/
+        });
     </script>
  </body>
 

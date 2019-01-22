@@ -14,22 +14,20 @@
 
 <body>
     <div class="wrapper">
-        <nav id="sidebar" class="active">
-            <div class="sidebar-header h-100">
-                <iframe id="frameVideo" class="h-100" src="" width="100%" allow="geolocation;microphone;camera;midi;encrypted-media">
-                </iframe>
-            </div>
-        </nav>
-        <div id="content" class="fondo">
+        <div style="background:#131B4D;padding: 0px;" id="content">
             <div class="container-fluid h-100">
-                <div id="video" class="row h-100">
-                    <div class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
-                        <h1><label id="titulollamada">Iniciar Video Conferencia</label></h1>
+                <div class="row h-100">
+                    <div class="col-lg-9 col-md-9 col-sm-12 h-100" style="padding:0px;">
+                        <iframe id="moderador" class="h-100" src="" width="100%" allow="geolocation;microphone;camera;midi;encrypted-media">
+                        </iframe>
                     </div>
-                    <div id="menu" class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
-                        <a id="sidebarCollapse" href="javascript:void(0)">
-                            <img id="icono" src="img/face.png" width="75%" class="sombra" title="iniciar una video llamada" />
-                        </a>
+                    <div class="col-lg-3 d-flex flex-lg-row flex-lg-column align-items-center justify-content-center" style="background:#087fca;">
+                       <img id="iconoEmpresa" src="img/conexion.png" class="rounded-circle" width="50%"/>
+                       <h1><label id="nombre">Esperando Conexion</label></h1>
+                       <h1><label id="empresa"></label></h1>
+                       <h1><label id="telefono"></label></h1>
+                       <h1><label id="codigo"></label></h1>
+                       <h1><label id="time"></label></h1>
                     </div>
                 </div>
             </div>
@@ -37,44 +35,8 @@
     </div>
 
     <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/socket.js"></script>
-
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
-        });
-
-        setTimeout(() => {
-            $('#sidebar').toggleClass('active');
-        }, 500);
-
-        $('#sidebarCollapse').on('click', function (e) {
-
-            if ($("#sidebar").hasClass('active')) {
-
-                $("#icono").attr("src", "img/face-roja.png");
-
-                $("#menu").removeClass("flex-lg-row");
-                $("#menu").addClass("flex-lg-column");
-            }
-
-            else {
-                $("#titulollamada").text("Iniciar Video Llamada");
-
-                $("#icono").attr("src", "img/face.png");
-                $("#icono").attr("style", "padding: 0px;");
-                $("#frameVideo").attr('src', '');
-
-                $("#menu").removeClass("flex-lg-column");
-                $("#menu").addClass("flex-lg-row");
-            }
-        });
-    </script>
 </body>
 
 </html>
