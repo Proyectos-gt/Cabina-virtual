@@ -174,14 +174,10 @@ iframe {
   padding: 10px 35px;
 }
 
-.contact100-header-logo img {
-  max-height: 23px;
-}
-
 .btn-show-contact100 {
   font-family: Montserrat-Bold;
   font-size: 12px;
-  color: #846add;
+  color: #131B4D;
   text-transform: uppercase;
   letter-spacing: 1px;
 
@@ -198,7 +194,7 @@ iframe {
 
 .btn-show-contact100:hover {
   color: #fff;
-  background-color: #846add;
+  background-color: #131B4D;
 }
 
 
@@ -217,7 +213,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: rgba(132,106,221,0.8);
+  background: rgba(134, 168, 240, 0.8);
   position: relative;
   z-index: 10;
 }
@@ -421,7 +417,7 @@ textarea.input100 {
   min-width: 160px;
   height: 42px;
   border-radius: 21px;
-  background: #846add;
+  background: #131B4D;
 
   box-shadow: 0 10px 30px 0px rgba(132, 106, 221, 0.5);
   -moz-box-shadow: 0 10px 30px 0px rgba(132, 106, 221, 0.5);
@@ -436,7 +432,8 @@ textarea.input100 {
 }
 
 .contact100-form-btn:hover {
-  background: #333333;
+  background: #131B4D;
+  color: white;
   box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
   -moz-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
   -webkit-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
