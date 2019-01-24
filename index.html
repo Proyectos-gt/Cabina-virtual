@@ -22,19 +22,87 @@
             <div class="sidebar-header h-100">
                 <iframe id="frameVideo" class="h-100" src="" width="100%" allow="geolocation;microphone;camera;midi;encrypted-media">
                 </iframe>
+                <div id="formulario" style="display:none">
+                    <div class="bg-container-contact100" style="background-image: url(img/bg-01.jpg);">
+                        <div class="contact100-header flex-sb-m">
+                            <a href="#" class="contact100-header-logo">
+                                <img src="img/logo.png" class="logo-unity">
+                            </a>
+                            <div>
+                                <button class="btn-show-contact100">
+                                    Iniciar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-contact100">
+                        <div class="wrap-contact100">
+                            <button class="btn-hide-contact100">
+                                <i class="zmdi zmdi-close"></i>
+                            </button>
+                            <div class="contact100-form-title" style="background-image: url(img/bg-02.jpg);">
+                                <span>Ingrese sus datos</span>
+                            </div>
+                            <form class="contact100-form validate-form">
+                                <div class="wrap-input100 validate-input">
+                                    <input id="name" class="input100" type="text" name="name" placeholder="Nombre Completo"
+                                        value="">
+                                    <span class="focus-input100"></span>
+                                    <label class="label-input100" for="name">
+                                        <span class="lnr lnr-user m-b-2"></span>
+                                    </label>
+                                </div>
+                                <div class="wrap-input100 validate-input">
+                                    <input id="email" class="input100" type="text" name="email" placeholder="Correo Electronico example@email.com">
+                                    <span class="focus-input100"></span>
+                                    <label class="label-input100" for="email">
+                                        <span class="lnr lnr-envelope m-b-5"></span>
+                                    </label>
+                                </div>
+                                <div class="wrap-input100 validate-input">
+                                    <input id="phone" class="input100" type="number" name="phone" placeholder="Numero telefonico">
+                                    <span class="focus-input100"></span>
+                                    <label class="label-input100" for="phone">
+                                        <span class="lnr lnr-smartphone m-b-2"></span>
+                                    </label>
+                                </div>
+                                <div class="wrap-input100">
+                                    <select id="ddlOpciones" class="input100" style="height:40px;">
+                                        <option value="">Tipo de Gestion</option>
+                                        <option value="">Tramitar Autorizaciones</option>
+                                        <option value="">Entregar documentos para reclamos</option>
+                                        <option value="">Solicitud de carnets</option>
+                                        <option value="">Solicitud de formularios de cualquier indole</option>
+                                        <option value="">Verificacion de llenado de documentos</option>
+                                        <option value="">Recepcion de cheque</option>
+                                        <option value="">Recepcion de liquidaciones</option>
+                                        <option value="">Solicitar red de proveedores</option>
+                                        <option value="">Induccion General del seguro</option>
+                                    </select>
+                                    <span class="focus-input100"></span>
+                                </div>
+                                <div class="container-contact100-form-btn">
+                                    <a id="enviar" class="contact100-form-btn" href="#">
+                                        Iniciar Comunicacion
+                                    </a>
+                                </div>
+                                <input id="identificador" name="identificador" style="display:none">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
         </nav>
         <div id="content" class="fondo">
             <div class="container-fluid h-100">
                 <div id="video" class="row h-100">
                     <div class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
-                        <h1><label id="titulollamada">Iniciar Video Conferencia</label></h1>
+                        <h1 id="titulollamada">Iniciar Video Conferencia</h1>
                     </div>
                     <div id="menu" class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
                         <a id="sidebarCollapse" href="javascript:void(0)">
                             <img id="icono" src="img/face.png" width="75%" class="sombra" title="iniciar una video llamada" />
-                        </a> 
+                        </a>
                         <a id="sidebarCollapse" href="javascript:Scaner()">
                             <img id="icono" src="img/Gestiones.png" width="75%" class="sombra" title="Escanear Documentos" />
                         </a>
@@ -81,6 +149,7 @@
     <script src="js/main.js"></script>
     <script src="js/socket.js"></script>
     <script src="js/utils.js"></script>
-  
+
 </body>
+
 </html>

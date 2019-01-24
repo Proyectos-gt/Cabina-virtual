@@ -12,8 +12,11 @@ setTimeout(() => {
 
 //-----------------------cambiando icono y e iniciando la video conferencia -------------------------
 $('#sidebarCollapse').on('click', function (e) {
-    $("#frameVideo").attr('src', 'file:///C:/Users/JorgeLaj/Desktop/Proyectos/VideoConferencia/formulario.html');
+    //$("#frameVideo").attr('src', 'file:///C:/Users/JorgeLaj/Desktop/Proyectos/VideoConferencia/formulario.html');
     // $("#frameVideo").attr('src', '/Consultas/VideoConferencia/formulario.html');
+    $("#frameVideo").hide();
+    $("#formulario").show();
+
     if ($("#sidebar").hasClass('active')) {
 
         $("#icono").attr("src", "img/face-roja.png");
@@ -26,6 +29,7 @@ $('#sidebarCollapse').on('click', function (e) {
     }
 
     else {
+        $("#formulario").hide();
         $("#titulollamada").text("Iniciar Video Llamada");
 
         $("#icono").attr("src", "img/face.png");
@@ -43,15 +47,18 @@ $('#sidebarCollapse').on('click', function (e) {
 
 //------------------------ funcion para abrir la ventana para escanear documentos ----------------------------
 function Scaner() {
-    window.open('https://reclamosgt.unitypromotores.com/Scanner/scannerDocumentos.aspx?id=' + 32442 + '', "ventana1", "width=350,height=550,scrollbars=NO")
+    window.open('https://reclamosgt.unitypromotores.com/Scanner/scannerDocumentos.aspx?id=' + $("#identificador").val() + '', "ventana1", "width=350,height=550,scrollbars=NO")
 }
 
-//Scripts para controlar el formulario formulario
+//---------------------- Scripts para controlar el formulario formulario -------------------------------------
 var fecha = new Date();
 $("#identificador").val("TE-" + fecha.getDate() + fecha.getSeconds() + fecha.getMilliseconds());
+
 $('#enviar').on('click', function (event) {
-    $("#Appear").attr("src", "https://appear.in/unitypromotoresgt");
-    $("#formularioUnity").attr("style", "display:none");
+    $("#formulario").hide();
+    $("#frameVideo").show();
+    $("#frameVideo").attr("src", "https://appear.in/unitypromotoresgt");
+
     /* 
       $.post("http://192.168.81.41:4000/api/clientes",
           {

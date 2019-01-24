@@ -1,4 +1,4 @@
-var socket = new WebSocket('ws://192.168.5.154:25000/');
+var socket = new WebSocket('ws://192.168.81.225:25000/');
 socket.onopen = function(event) {
   //log('Conexion Abiera ');
   var json = JSON.stringify({ Mensaje: 'Esperando Conexion' });
@@ -15,11 +15,12 @@ socket.onmessage = function (event) {
 
   if(text.Mensaje === "Telus"){
     $("#moderador").attr("src", "https://appear.in/unitypromotoresgt");
+    $("#iconoEmpresa").attr("src", "img/Telus.jpg");
     $("#nombre").text(text.Nombre);
     $("#telefono").text("Telefono: "+ text.Telefono);
     $("#empresa").text("Empresa: "+ text.Mensaje);
-    $("#iconoEmpresa").attr("src", "img/Telus.jpg");
     $("#codigo").text("Codigo: " + text.Codigo);
+    $("#tipo").text("Tipo: " + text.Tipo);
   }
 }
 
@@ -28,10 +29,22 @@ socket.onclose = function(event) {
 }
 
 $('#enviar').on('click', function(){
-    var json = JSON.stringify({ Mensaje: 'Telus', Nombre: $('#name').val(), Telefono: $('#phone').val(), Codigo: $('#identificador').val() });
+    var json = JSON.stringify(
+      { 
+        Mensaje: 'Telus', 
+        Nombre: $('#name').val(), 
+        Telefono: $('#phone').val(), 
+        Codigo: $('#identificador').val(),
+        Tipo: $("#ddlOpciones option:selected").text()
+      });
+
     socket.send(json);
     $("#frameVideo").attr("src", "https://appear.in/unitypromotoresgt");
     $("#formularioUnity").attr("style", "display:none");
+
+    $('#name').val('');
+    $('#phone').val('');
+    $('#email').val('');
 });
 /*
 document.querySelector('#close').addEventListener('click', function(event) {

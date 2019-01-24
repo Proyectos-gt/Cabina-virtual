@@ -10,26 +10,40 @@
     <link href="css/estilos.css" rel="stylesheet" />
     <link href="css/slide.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
 </head>
 
 <body>
     <div class="wrapper">
-        <div style="background:#131B4D;padding: 0px;" id="content">
-            <div class="container-fluid h-100">
-                <div class="row h-100">
-                    <div class="col-lg-9 col-md-9 col-sm-12 h-100" style="padding:0px;">
-                        <iframe id="moderador" class="h-100" src="" width="100%" allow="geolocation;microphone;camera;midi;encrypted-media">
-                        </iframe>
-                    </div>
-                    <div class="col-lg-3 d-flex flex-lg-row flex-lg-column align-items-center justify-content-center" style="background:#087fca;">
-                       <img id="iconoEmpresa" src="img/conexion.png" class="rounded-circle" width="50%"/>
-                       <h1><label id="nombre">Esperando Conexion</label></h1>
-                       <h1><label id="empresa"></label></h1>
-                       <h1><label id="telefono"></label></h1>
-                       <h1><label id="codigo"></label></h1>
-                       <h1><label id="time"></label></h1>
-                    </div>
+        <nav id="sidebar">
+            <div class="sidebar-header h-100">
+                <iframe id="moderador" class="h-100" src="" width="100%" allow="geolocation;microphone;camera;midi;encrypted-media">
+                </iframe>
+            </div>
+        </nav>
+        <div id="content" class="fondo">
+            <div class="row opciones h-20">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="#" target="_blank" title="Pendientes"><i class="fa fa-search"></i></a>
                 </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="https://archivos-reclamos.unitypromotores.com/explorador.html#files%2FCabina" target="_blank" title="Ver Documentos"><i class="fa fa-file-pdf"></i></a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="#" target="_blank" title="Formularios de Aseguradoras"><i class="fab fa-wpforms"></i></a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="https://reclamosgt.unitypromotores.com/" target="_blank" title="Sistema de Reclamos Unity"><i class="fa fa-car-crash"></i></a>
+                </div>
+            </div>
+            <div class="h-80 col-lg-12 d-flex flex-lg-column align-items-center justify-content-center">
+                <img id="iconoEmpresa" src="img/conexion.png" class="rounded-circle img-fluid" width="45%" alt="Responsive image" />
+                <label id="nombre">Esperando Conexion</label>
+                <label id="empresa"></label>
+                <label id="telefono"></label>
+                <label id="codigo"></label>
+                <label id="tipo"></label>
             </div>
         </div>
     </div>
