@@ -47,7 +47,9 @@ $('#sidebarCollapse').on('click', function (e) {
 
 //------------------------ funcion para abrir la ventana para escanear documentos ----------------------------
 function Scaner() {
-    window.open('https://reclamosgt.unitypromotores.com/Scanner/scannerDocumentos.aspx?id=' + $("#identificador").val() + '', "ventana1", "width=350,height=550,scrollbars=NO")
+    window.open('https://reclamosgt.unitypromotores.com/Scanner/scannerDocumentos.aspx?' + $("#identificador").val(),'','width=350,height=550,left=50,top=50,toolbar=yes');
+ // var escaner =  window;
+ // escaner.open('https://reclamosgt.unitypromotores.com/Scanner/scannerDocumentos.aspx?id=' + $("#identificador").val() + '', "ventana1", "width=350,height=550,scrollbars=NO");
 }
 
 //---------------------- Scripts para controlar el formulario formulario -------------------------------------
@@ -55,9 +57,9 @@ var fecha = new Date();
 $("#identificador").val("TE-" + fecha.getDate() + fecha.getSeconds() + fecha.getMilliseconds());
 
 $('#enviar').on('click', function (event) {
-    $("#formulario").hide();
+   // $("#formulario").hide();
     $("#frameVideo").show();
-    $("#frameVideo").attr("src", "https://appear.in/unitypromotoresgt");
+  //  $("#frameVideo").attr("src", "https://appear.in/unitypromotoresgt");
 
     /* 
       $.post("http://192.168.81.41:4000/api/clientes",

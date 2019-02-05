@@ -39,12 +39,12 @@ $('#enviar').on('click', function(){
       });
 
     socket.send(json);
-    $("#frameVideo").attr("src", "https://appear.in/unitypromotoresgt");
-    $("#formularioUnity").attr("style", "display:none");
-
+    var video = window;
+    video.open('https://appear.in/unitypromotoresgt', "ventana1", "width=350,height=550,scrollbars=NO,location=NO");
     $('#name').val('');
     $('#phone').val('');
     $('#email').val('');
+    $("#Iniciollamada").attr("style", "display:none");
 });
 /*
 document.querySelector('#close').addEventListener('click', function(event) {
