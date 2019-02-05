@@ -1,4 +1,5 @@
 var socket = new WebSocket('ws://192.168.81.225:25000/');
+
 socket.onopen = function(event) {
   //log('Conexion Abiera ');
   var json = JSON.stringify({ Mensaje: 'Esperando Conexion' });
@@ -39,33 +40,12 @@ $('#enviar').on('click', function(){
       });
 
     socket.send(json);
-    var video = window;
-    video.open('https://appear.in/unitypromotoresgt', "ventana1", "width=350,height=550,scrollbars=NO,location=NO");
+   
     $('#name').val('');
     $('#phone').val('');
     $('#email').val('');
-    $("#Iniciollamada").attr("style", "display:none");
 });
-/*
-document.querySelector('#close').addEventListener('click', function(event) {
-  socket.close();
-  log('Closed connection');
-});
-
-document.querySelector('#enviar').addEventListener('click', function(event) {
-  var json = document.getElementById('name').value ;
-  socket.send(json);
-  log('Sent: ' + json);
-});
-
-var log = function(text) {
-
-  var li = document.createElement('li');
-  li.innerHTML = text;
-  document.getElementById('log').appendChild(li);
-}
 
 window.addEventListener('beforeunload', function() {
   socket.close();
 });
-*/

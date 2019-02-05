@@ -6,22 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Video Conferencia</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/estilos.css" rel="stylesheet" />
-    <link href="css/slide.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/estilos.css" rel="stylesheet" />
+    <link href="/css/slide.css" rel="stylesheet" />
+    <link href="/css/animate.css" rel="stylesheet" type="text/css">
+    <link href="/css/animsition.min.css" rel="stylesheet" type="text/css">
+    <link href="fonts/iconic/css/material-design-iconic-font.min.css" rel="stylesheet" type="text/css">
+    <link href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+
 </head>
 
 <body>
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header h-100">
-                <iframe id="frameVideo" class="h-100" src="" width="100%" allow="geolocation;microphone;camera;midi;encrypted-media">
-                </iframe>
                 <div id="formulario" style="display:none">
                     <div class="bg-container-contact100" style="background-image: url(img/bg-01.jpg);">
                         <div class="contact100-header flex-sb-m">
@@ -45,22 +44,24 @@
                             </div>
                             <form class="contact100-form validate-form">
                                 <div class="wrap-input100 validate-input">
-                                    <input id="name" autocomplete="off" class="input100" type="text" name="name" placeholder="Nombre Completo"
-                                        value="">
+                                    <input id="name" autocomplete="off" class="input100" type="text" name="name"
+                                        placeholder="Nombre Completo" value="">
                                     <span class="focus-input100"></span>
                                     <label class="label-input100" for="name">
                                         <span class="lnr lnr-user m-b-2"></span>
                                     </label>
                                 </div>
                                 <div class="wrap-input100 validate-input">
-                                    <input id="email" class="input100" autocomplete="off" type="text" name="email" placeholder="Correo Electronico example@email.com">
+                                    <input id="email" class="input100" autocomplete="off" type="text" name="email"
+                                        placeholder="Correo Electronico example@email.com">
                                     <span class="focus-input100"></span>
                                     <label class="label-input100" for="email">
                                         <span class="lnr lnr-envelope m-b-5"></span>
                                     </label>
                                 </div>
                                 <div class="wrap-input100 validate-input">
-                                    <input id="phone" autocomplete="off" class="input100" type="number" name="phone" placeholder="Numero telefonico">
+                                    <input id="phone" autocomplete="off" class="input100" type="number" name="phone"
+                                        placeholder="Numero telefonico">
                                     <span class="focus-input100"></span>
                                     <label class="label-input100" for="phone">
                                         <span class="lnr lnr-smartphone m-b-2"></span>
@@ -143,13 +144,34 @@
         </div>
     </div>
 
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="vendor/animsition/js/animsition.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/socket.js"></script>
-    <script src="js/utils.js"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/animsition.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/socket.js"></script>
+    <script src="/js/utils.js"></script>
+    <script>
+        var video;
 
+        function closeWin() {
+            video.close();
+        }
+
+        function OpenVideo(){
+            video = window.open('https://appear.in/unitypromotoresgt',"ventana1","width=350,height=550,scrollbars=NO,location=NO");
+        }
+
+        $('#enviar').on('click', function () {
+            $("#Iniciollamada").attr("style", "display:none");
+            OpenVideo();
+        });
+
+        $('#sidebarCollapse').on('click', function (e) {
+            if (!$("#sidebar").hasClass('active')) {
+                closeWin();
+            } 
+        });
+    </script>
 </body>
 
 </html>
