@@ -22,27 +22,39 @@
                 </iframe>
             </div>
         </nav>
-        <div id="content" class="fondo">
-            <div class="row opciones h-20">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="#" target="_blank" title="Pendientes"><i class="fa fa-search"></i></a>
+        <div id="content" class="container-fluid h-100 fondo ">
+            <div id="MENU" class="opciones2">
+                <div class="d-flex justify-content-center">
+                    <h1 id="titulollamada">Administracion De Cabina</h1>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="javascript:Archivos()" target="_blank" title="Ver Documentos"><i class="fa fa-file-pdf"></i></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="#" target="_blank" title="Formularios de Aseguradoras"><i class="fab fa-wpforms"></i></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://reclamosgt.unitypromotores.com/" target="_blank" title="Sistema de Reclamos Unity"><i class="fa fa-car-crash"></i></a>
+                <div class="d-flex justify-content-center">
+                    <div class="p-2">
+                        <a id="pendientes" href="#" title="Pendientes">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+                    <div class="p-2">
+                        <a id="documentos" title="Ver Documentos">
+                            <i class="fa fa-file-pdf"></i>
+                        </a>
+                    </div>
+                    <div class="p-2">
+                        <a href="http://52.34.115.100:5556/explorador.html#files%2FFormularios" target="_blank" title="Formularios de Aseguradoras"><i class="fab fa-wpforms"></i></a>
+                    </div>
+                    <div class="p-2">
+                        <a href="https://reclamosgt.unitypromotores.com/" target="_blank" title="Sistema de Reclamos Unity">
+                           <i class="fa fa-car-crash"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="h-80 d-flex flex-lg-column align-items-center justify-content-center">
-                <img id="iconoEmpresa" src="img/conexion.png" class="rounded-circle img-fluid" width="35%" alt="Responsive image" />
+            <div class="h-60 d-flex flex-lg-column align-items-center justify-content-center">
+                <img id="iconoEmpresa" src="img/conexion.png" class="rounded-circle img-fluid" width="15%" alt="Responsive image" />
                 <label id="nombre">Esperando Conexion</label>
                 <label id="empresa"></label>
                 <label id="telefono"></label>
                 <label id="codigo"></label>
+                <label id="buscar-codigo" style="display:none"></label>
                 <label id="tipo"></label>
             </div>
         </div>
@@ -51,10 +63,32 @@
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/socket.js"></script>
+    <script src="/js/utils.js"></script>
     <script>
-       function Archivos() {
-           window.open('https://archivos-reclamos.unitypromotores.com/explorador.html#search='+ $("#codigo").text() + '', "ventana1", "width=850,height=550,scrollbars=NO")
+        function side(){
+            if ($('#sidebar').hasClass('active')) {
+                $("#sidebar").removeClass("active");
+                $('#MENU').addClass('opciones');
+                $('#MENU').removeClass('opciones2');
+            } else {
+                $('#sidebar').addClass('active');
+                $('#MENU').removeClass('opciones');
+                $('#MENU').addClass('opciones2');
+            }
         }
+
+        function Archivos() {
+            window.open('http://52.34.115.100:5556/explorador.html#search='+$('#buscar-codigo').text()+'', "ventana1", "width=850,height=550,scrollbars=NO");     
+        }
+
+        $('#pendientes').on('click', function (e) {
+           side();
+        });
+
+        $('#documentos').on('click', function(e){
+           side();
+           $('#moderador').attr('src','http://52.34.115.100:5556/explorador.html#search='+$('#buscar-codigo').text());
+        });
     </script>
 </body>
 

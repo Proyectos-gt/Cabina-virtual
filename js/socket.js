@@ -1,4 +1,5 @@
 var socket = new WebSocket('ws://192.168.81.225:25000/');
+var VideoModerador;
 
 socket.onopen = function(event) {
   //log('Conexion Abiera ');
@@ -11,6 +12,16 @@ socket.onerror = function(event) {
   //log('Error: ' + JSON.stringify(event));
 }
 
+
+function closeWin() {
+  VideoModerador.close();
+}
+
+function OpenVideo(){
+  VideoModerador = window.open('https://appear.in/unitypromotoresgt',"ventana1","width=750,height=550,scrollbars=NO,location=NO");
+}
+
+
 socket.onmessage = function (event) {
   text = JSON.parse(event.data);
 
@@ -21,7 +32,10 @@ socket.onmessage = function (event) {
     $("#telefono").text("Telefono: "+ text.Telefono);
     $("#empresa").text("Empresa: "+ text.Mensaje);
     $("#codigo").text("Codigo: " + text.Codigo);
+    $("#buscar-codigo").text(text.Codigo);
     $("#tipo").text("Tipo: " + text.Tipo);
+
+    OpenVideo();
   }
 }
 

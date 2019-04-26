@@ -14,7 +14,11 @@
     <link href="fonts/iconic/css/material-design-iconic-font.min.css" rel="stylesheet" type="text/css">
     <link href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
+    <style>
+        #audio{
+            display: none   
+        }
+    </style>
 </head>
 
 <body>
@@ -104,8 +108,8 @@
                         <a id="sidebarCollapse" href="javascript:void(0)">
                             <img id="icono" src="img/face.png" width="75%" class="sombra" title="iniciar una video llamada" />
                         </a>
-                        <a id="sidebarCollapse" href="javascript:Scaner()">
-                            <img id="icono" src="img/Gestiones.png" width="75%" class="sombra" title="Escanear Documentos" />
+                        <a href="javascript:Scaner()" data-role="disabled">
+                            <img id="BotonScanner" src="img/Gestiones.png" width="75%" class="sombra" title="Escanear Documentos" />
                         </a>
                     </div>
                     <div class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
@@ -127,8 +131,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="Encuesta" tabindex="-1" role="dialog">
-        <div class="modal-dialog  modal-dialog-centered" role="document">
+    <div class="modal fade" id="Encuesta" data-backdrop="static">
+        <div class="modal-dialog  modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title ">Desea Responder Nuestra Encuesta</h5>
@@ -138,12 +142,14 @@
                 </div>
                 <div class="modal-footer justify-content-center">
                     <a href="http://52.34.115.100:9595/recepcion" class="btn btn-success botones">Si</a>
-                    <button type="button" class="btn btn-danger botones" data-dismiss="modal">No</button>
+                    <button id="cancelar" class="btn btn-danger botones">No</button>
                 </div>
             </div>
         </div>
     </div>
-
+    <audio id="audio" controls>
+        <source type="audio/wav" src="/audio/alarma.mp3">
+    </audio>
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/animsition.min.js"></script>
@@ -158,12 +164,19 @@
         }
 
         function OpenVideo(){
-            video = window.open('https://appear.in/unitypromotoresgt',"ventana1","width=350,height=550,scrollbars=NO,location=NO");
+            video = window.open('https://appear.in/unitypromotoresgt',"ventana1","width=750,height=550,scrollbars=NO,location=NO");
+            var audio = document.getElementById("audio");
+            audio.play();
         }
 
         $('#enviar').on('click', function () {
             $("#Iniciollamada").attr("style", "display:none");
-            OpenVideo();
+            if($('#name').val() ==""){
+                alert("falta un nombre");
+            }
+            else{
+                OpenVideo();
+            }
         });
 
         $('#sidebarCollapse').on('click', function (e) {
@@ -171,6 +184,10 @@
                 closeWin();
             } 
         });
+
+        $('#cancelar').on('click',function(){
+            location.reload();
+        })
     </script>
 </body>
 

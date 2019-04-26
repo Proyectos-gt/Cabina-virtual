@@ -63,7 +63,13 @@ body{
 }
 
 .opciones{
-  font-size: 40px;
+  font-size: 60px;
+  color: white;
+  margin: 15px;
+}
+
+.opciones2{
+  font-size: 100px;
   color: white;
   margin: 15px;
 }
