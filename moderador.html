@@ -60,7 +60,7 @@
         </div>
     </div>
     <audio id="audio" controls>
-        <source type="audio/wav" src="/audio/alarma.mp3">
+        <source type="audio/ogg" src="/audio/audio.mp3">
     </audio>
 
     <script src="/js/jquery-3.2.1.min.js"></script>
@@ -84,15 +84,16 @@
             window.open('http://52.34.115.100:5556/explorador.html#search='+$('#buscar-codigo').text()+'', "ventana1", "width=850,height=550,scrollbars=NO");     
         }
 
-        $('#pendientes').on('click', function (e) {
-           side();
-          // var audio = document.getElementById("audio");
-          // audio.play();
-        });
-
         $('#documentos').on('click', function(e){
            side();
            $('#moderador').attr('src','http://52.34.115.100:5556/explorador.html#search='+$('#buscar-codigo').text());
+        });
+
+        $('#pendientes').on('click', function(e){
+          //var audio = document.getElementById("audio");
+          //audio.play();
+           side();
+           $('#moderador').attr('src','https://reclamosgt.unitypromotores.com/MdBitacora/CabinaVirtual/Pendientes.aspx');
         });
     </script>
 </body>

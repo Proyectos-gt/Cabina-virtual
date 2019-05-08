@@ -3,6 +3,7 @@
 var VideoModerador;
 
 var socket = new WebSocket('wss://app.hotelhaciendadelpedregal.com/api/socket');
+var alarma = document.getElementById("audio");
 
 socket.onopen = function (event) {
   //log('Conexion Abiera ');
@@ -15,17 +16,22 @@ socket.onerror = function (event) {
   //log('Error: ' + JSON.stringify(event));
 }
 
-
 function closeWin() {
   VideoModerador.close();
 }
 
 function OpenVideo() {
-  var audio = document.getElementById("audio");
-  audio.play();
-  VideoModerador = window.open('https://appear.in/unitypromotoresgt', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
-}
+   var playPromise = alarma.play();
+   
+  if (playPromise !== undefined) {
+    playPromise.then(_ => {
+    })
+    .catch(error => {
 
+    });
+  }
+   VideoModerador = window.open('https://appear.in/unitypromotoresgt', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
+}
 
 socket.onmessage = function (event) {
   text = JSON.parse(event.data);

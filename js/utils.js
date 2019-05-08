@@ -36,7 +36,6 @@ $('#sidebarCollapse').on('click', function (e) {
 
         $('#menu').removeClass('flex-lg-column');
         $('#menu').addClass('flex-lg-row');
-       
 
         setTimeout(() => {
             $('#sidebar').addClass('active');
@@ -48,6 +47,7 @@ $('#sidebarCollapse').on('click', function (e) {
 //---------------------- Scripts para controlar el formulario formulario -------------------------------------
 var fecha = new Date();
 $("#identificador").val("TE-" + fecha.getDate() + fecha.getSeconds() + fecha.getMilliseconds());
+
 
 //------------------------ funcion para abrir la ventana para escanear documentos ----------------------------
 function Scaner() {
