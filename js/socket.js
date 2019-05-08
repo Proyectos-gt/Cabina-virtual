@@ -21,13 +21,17 @@ function closeWin() {
 }
 
 function OpenVideo() {
-   var playPromise = alarma.play();
+
+  var playPromise = alarma.play();
    
   if (playPromise !== undefined) {
     playPromise.then(_ => {
+      // Automatic playback started!
+      // Show playing UI.
     })
     .catch(error => {
-
+      // Auto-play was prevented
+      // Show paused UI.
     });
   }
    VideoModerador = window.open('https://appear.in/unitypromotoresgt', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
