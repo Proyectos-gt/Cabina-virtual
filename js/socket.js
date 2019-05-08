@@ -1,5 +1,8 @@
-var socket = new WebSocket('ws://192.168.81.225:25000/');
+//var socket = new WebSocket('ws://192.168.81.225:25000/');
+//var socket = new WebSocket('wss://socket.unitypromotores.com/cabina-virtual');
 var VideoModerador;
+
+var socket = new WebSocket('wss://app.hotelhaciendadelpedregal.com/api/socket');
 
 socket.onopen = function(event) {
   //log('Conexion Abiera ');
@@ -17,7 +20,9 @@ function closeWin() {
   VideoModerador.close();
 }
 
-function OpenVideo(){
+function OpenVideo() { 
+  var audio = document.getElementById("audio");
+  audio.play();
   VideoModerador = window.open('https://appear.in/unitypromotoresgt',"ventana1","width=750,height=550,scrollbars=NO,location=NO");
 }
 

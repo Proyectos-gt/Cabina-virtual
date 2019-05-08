@@ -14,11 +14,6 @@
     <link href="fonts/iconic/css/material-design-iconic-font.min.css" rel="stylesheet" type="text/css">
     <link href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-    <style>
-        #audio{
-            display: none   
-        }
-    </style>
 </head>
 
 <body>
@@ -49,7 +44,7 @@
                             <form class="contact100-form validate-form">
                                 <div class="wrap-input100 validate-input">
                                     <input id="name" autocomplete="off" class="input100" type="text" name="name"
-                                        placeholder="Nombre Completo" value="">
+                                        placeholder="Nombre Completo" value="" />
                                     <span class="focus-input100"></span>
                                     <label class="label-input100" for="name">
                                         <span class="lnr lnr-user m-b-2"></span>
@@ -57,7 +52,7 @@
                                 </div>
                                 <div class="wrap-input100 validate-input">
                                     <input id="email" class="input100" autocomplete="off" type="text" name="email"
-                                        placeholder="Correo Electronico example@email.com">
+                                        placeholder="Correo Electronico example@email.com" />
                                     <span class="focus-input100"></span>
                                     <label class="label-input100" for="email">
                                         <span class="lnr lnr-envelope m-b-5"></span>
@@ -65,7 +60,7 @@
                                 </div>
                                 <div class="wrap-input100 validate-input">
                                     <input id="phone" autocomplete="off" class="input100" type="number" name="phone"
-                                        placeholder="Numero telefonico">
+                                        placeholder="Numero telefonico" />
                                     <span class="focus-input100"></span>
                                     <label class="label-input100" for="phone">
                                         <span class="lnr lnr-smartphone m-b-2"></span>
@@ -87,7 +82,7 @@
                                     <span class="focus-input100"></span>
                                 </div>
                                 <div class="container-contact100-form-btn">
-                                    <a id="enviar" class="contact100-form-btn" href="#">
+                                    <a id="enviar" style="display:none" class="contact100-form-btn" href="#">
                                         Iniciar Comunicacion
                                     </a>
                                 </div>
@@ -104,12 +99,15 @@
                     <div class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
                         <h1 id="titulollamada">Iniciar Video Conferencia</h1>
                     </div>
-                    <div id="menu" class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
+                    <div id="menu"
+                        class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
                         <a id="sidebarCollapse" href="javascript:void(0)">
-                            <img id="icono" src="img/face.png" width="75%" class="sombra" title="iniciar una video llamada" />
+                            <img id="icono" src="img/face.png" width="75%" class="sombra"
+                                title="iniciar una video llamada" />
                         </a>
                         <a href="javascript:Scaner()" data-role="disabled">
-                            <img id="BotonScanner" src="img/Gestiones.png" width="75%" class="sombra" title="Escanear Documentos" />
+                            <img id="BotonScanner" src="img/Gestiones.png" width="75%" class="sombra"
+                                title="Escanear Documentos" />
                         </a>
                     </div>
                     <div class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
@@ -138,7 +136,8 @@
                     <h5 class="modal-title ">Desea Responder Nuestra Encuesta</h5>
                 </div>
                 <div class="modal-body  d-flex flex-column align-items-center justify-content-center">
-                    <a href="http://52.34.115.100:9595/recepcion"><img id="icono" src="img/like.png" class="sombra" /></a>
+                    <a href="http://52.34.115.100:9595/recepcion"><img id="icono" src="img/like.png"
+                            class="sombra" /></a>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <a href="http://52.34.115.100:9595/recepcion" class="btn btn-success botones">Si</a>
@@ -147,9 +146,7 @@
             </div>
         </div>
     </div>
-    <audio id="audio" controls>
-        <source type="audio/wav" src="/audio/alarma.mp3">
-    </audio>
+
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/animsition.min.js"></script>
@@ -157,37 +154,61 @@
     <script src="/js/socket.js"></script>
     <script src="/js/utils.js"></script>
     <script>
+        $('#name').keypress(function () {
+            if ($('#name').val() !== '') {
+                $('#enviar').attr('style', 'display:');
+            }
+            else {
+                $('#enviar').attr('style', 'display:none');
+            }
+        });
+
         var video;
 
         function closeWin() {
             video.close();
         }
 
-        function OpenVideo(){
-            video = window.open('https://appear.in/unitypromotoresgt',"ventana1","width=750,height=550,scrollbars=NO,location=NO");
-            var audio = document.getElementById("audio");
-            audio.play();
+        function OpenVideo() {
+            video = window.open('https://appear.in/unitypromotoresgt', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
         }
 
         $('#enviar').on('click', function () {
             $("#Iniciollamada").attr("style", "display:none");
-            if($('#name').val() ==""){
-                alert("falta un nombre");
-            }
-            else{
-                OpenVideo();
-            }
+            OpenVideo();
+
+            $.post("https://encuestas.unitypromotores.com/api/v1/encuesta/guardar",
+                {
+                    "table_name": 'cabina_virtual',
+                    "nombre": $('#name').val(),
+                    "correo": $('#email').val(),
+                    "telefono": $('#phone').val(),
+                    "codigo": $('#identificador').val()
+                },
+            ).done(function () {
+                setTimeout(
+                    function () {
+                       console.log('envio exitoso');
+                    }, 200);
+            }).fail(function () {
+                 setTimeout(
+                    function () {
+                        console.log('no se pudo enviar');
+                    }, 200);
+            });
         });
 
         $('#sidebarCollapse').on('click', function (e) {
             if (!$("#sidebar").hasClass('active')) {
                 closeWin();
-            } 
+            }
         });
 
-        $('#cancelar').on('click',function(){
+        $('#cancelar').on('click', function () {
             location.reload();
-        })
+        });
+
+
     </script>
 </body>
 

@@ -23,7 +23,6 @@ $('#sidebarCollapse').on('click', function (e) {
         $('#menu').addClass('flex-lg-column');
 
         $('#titulollamada').text('Finalizar Llamada');
-       
     }
 
     else {

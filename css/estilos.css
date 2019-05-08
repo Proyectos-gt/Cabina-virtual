@@ -2,6 +2,10 @@
     background-color: #131B4D;
 }
 
+#audio{
+    display: none   
+}
+
 .sombra {
     -webkit-filter: drop-shadow(5px 5px 5px #222 );
     filter: drop-shadow(5px 5px 21px #222);
