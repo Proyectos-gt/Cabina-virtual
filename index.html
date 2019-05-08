@@ -174,26 +174,6 @@
         }
 
         $('#enviar').on('click', function () {
-            $.post("https://encuestas.unitypromotores.com/api/v1/encuesta/guardar",
-                {
-                    "table_name": 'cabina_virtual',
-                    "nombre": $('#name').val(),
-                    "correo": $('#email').val(),
-                    "telefono": $('#phone').val(),
-                    "codigo": $('#identificador').val()
-                },
-            ).done(function () {
-                setTimeout(
-                    function () {
-                       console.log('envio exitoso');
-                    }, 200);
-            }).fail(function () {
-                 setTimeout(
-                    function () {
-                        console.log('no se pudo enviar');
-                    }, 200);
-            });
-            
             $("#Iniciollamada").attr("style", "display:none");
             OpenVideo();
         });
