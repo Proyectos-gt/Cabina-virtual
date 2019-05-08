@@ -174,9 +174,6 @@
         }
 
         $('#enviar').on('click', function () {
-            $("#Iniciollamada").attr("style", "display:none");
-            OpenVideo();
-
             $.post("https://encuestas.unitypromotores.com/api/v1/encuesta/guardar",
                 {
                     "table_name": 'cabina_virtual',
@@ -196,6 +193,9 @@
                         console.log('no se pudo enviar');
                     }, 200);
             });
+            
+            $("#Iniciollamada").attr("style", "display:none");
+            OpenVideo();
         });
 
         $('#sidebarCollapse').on('click', function (e) {
