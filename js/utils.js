@@ -54,3 +54,29 @@ function Scaner() {
     window.open('https://reclamosgt.unitypromotores.com/Scanner/scannerDocumentos.aspx?codigo='+ $("#identificador").val(),'','width=350,height=550,left=50,top=50,toolbar=yes');
 }
 
+function side(){
+    if ($('#sidebar').hasClass('active')) {
+        $("#sidebar").removeClass("active");
+        $('#MENU').addClass('opciones');
+        $('#MENU').removeClass('opciones2');
+    } else {
+        $('#sidebar').addClass('active');
+        $('#MENU').removeClass('opciones');
+        $('#MENU').addClass('opciones2');
+    }
+}
+
+function Archivos() {
+    window.open('http://52.34.115.100:5556/explorador.html#search='+$('#buscar-codigo').text()+'', "ventana1", "width=850,height=550,scrollbars=NO");     
+}
+
+$('#documentos').on('click', function(e){
+   side();
+   $('#moderador').attr('src','http://52.34.115.100:5556/explorador.html#search='+$('#buscar-codigo').text());
+});
+
+$('#pendientes').on('click', function(e){
+   side();
+   $('#moderador').attr('src','https://reclamosgt.unitypromotores.com/MdBitacora/CabinaVirtual/Pendientes.aspx');
+});
+

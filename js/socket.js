@@ -2,7 +2,7 @@
 //var socket = new WebSocket('wss://socket.unitypromotores.com/cabina-virtual');
 var VideoModerador;
 
-var socket = new WebSocket('wss://app.hotelhaciendadelpedregal.com/api/socket');
+var socket = new WebSocket('wss://socket.unitypromotores.com/cabina-virtual');
 var alarma = document.getElementById("audio");
 
 socket.onopen = function (event) {

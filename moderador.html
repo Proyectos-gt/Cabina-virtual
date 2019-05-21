@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
 </head>
-
 <body>
     <div class="wrapper">
         <nav id="sidebar">
@@ -67,34 +66,5 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/socket.js"></script>
     <script src="/js/utils.js"></script>
-    <script>
-        function side(){
-            if ($('#sidebar').hasClass('active')) {
-                $("#sidebar").removeClass("active");
-                $('#MENU').addClass('opciones');
-                $('#MENU').removeClass('opciones2');
-            } else {
-                $('#sidebar').addClass('active');
-                $('#MENU').removeClass('opciones');
-                $('#MENU').addClass('opciones2');
-            }
-        }
-
-        function Archivos() {
-            window.open('http://52.34.115.100:5556/explorador.html#search='+$('#buscar-codigo').text()+'', "ventana1", "width=850,height=550,scrollbars=NO");     
-        }
-
-        $('#documentos').on('click', function(e){
-           side();
-           $('#moderador').attr('src','http://52.34.115.100:5556/explorador.html#search='+$('#buscar-codigo').text());
-        });
-
-        $('#pendientes').on('click', function(e){
-          //var audio = document.getElementById("audio");
-          //audio.play();
-           side();
-           $('#moderador').attr('src','https://reclamosgt.unitypromotores.com/MdBitacora/CabinaVirtual/Pendientes.aspx');
-        });
-    </script>
 </body>
 </html>
