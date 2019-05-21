@@ -67,12 +67,12 @@ function side(){
 }
 
 function Archivos() {
-    window.open('http://52.34.115.100:5556/explorador.html#search='+$('#buscar-codigo').text()+'', "ventana1", "width=850,height=550,scrollbars=NO");     
+    window.open('https://archivos-reclamos.unitypromotores.com/explorador.html#search='+$('#buscar-codigo').text()+'', "ventana1", "width=850,height=550,scrollbars=NO");     
 }
 
 $('#documentos').on('click', function(e){
    side();
-   $('#moderador').attr('src','http://52.34.115.100:5556/explorador.html#search='+$('#buscar-codigo').text());
+   $('#moderador').attr('src','https://archivos-reclamos.unitypromotores.com/explorador.html#search='+$('#buscar-codigo').text());
 });
 
 $('#pendientes').on('click', function(e){
