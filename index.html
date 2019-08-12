@@ -91,8 +91,9 @@
         <div id="content" class="fondo">
             <div class="container-fluid h-100">
                 <div id="video" class="row h-100">
-                    <div class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
+                    <div class="col-lg-12 d-flex flex-lg-column flex-sm-column align-items-center justify-content-center">
                         <h1 id="titulollamada">Iniciar Video Conferencia</h1>
+                        <h1 id="codigollamada"></h1>
                     </div>
                     <div id="menu"
                         class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
@@ -135,7 +136,7 @@
                             class="sombra" /></a>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <a href="https://encuestas.unitypromotores.com/cabina" class="btn btn-success botones">Si</a>
+                    <a href="javascript:encuesta()" class="btn btn-success botones">Si</a>
                     <button id="cancelar" class="btn btn-danger botones">No</button>
                 </div>
             </div>
@@ -149,6 +150,8 @@
     <script src="/js/socket.js"></script>
     <script src="/js/utils.js"></script>
     <script>
+        var video;
+
         $('#name').keypress(function () {
             if ($('#name').val() !== '') {
                 $('#enviar').attr('style', 'display:');
@@ -157,8 +160,6 @@
                 $('#enviar').attr('style', 'display:none');
             }
         });
-
-        var video;
 
         function closeWin() {
             video.close();
@@ -182,8 +183,6 @@
         $('#cancelar').on('click', function () {
             location.reload();
         });
-
-
     </script>
 </body>
 

@@ -1,4 +1,4 @@
-//--------------------- activando el sidebar-----------------------------
+//activando el sidebar
 $(document).ready(function () {
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
@@ -10,7 +10,7 @@ setTimeout(() => {
 }, 500);
 
 
-//-----------------------cambiando icono  e iniciando la video conferencia -------------------------
+//cambiando icono e iniciando la video conferencia
 $('#sidebarCollapse').on('click', function (e) {
     $("#formulario").show();
 
@@ -23,6 +23,7 @@ $('#sidebarCollapse').on('click', function (e) {
         $('#menu').addClass('flex-lg-column');
 
         $('#titulollamada').text('Finalizar Llamada');
+        $('#codigollamada').text("Codigo: " + $('#identificador').val());
     }
 
     else {
@@ -44,16 +45,22 @@ $('#sidebarCollapse').on('click', function (e) {
     }
 });
 
-//---------------------- Scripts para controlar el formulario formulario -------------------------------------
+//Scripts para generar el identificador de la llamada
 var fecha = new Date();
 $("#identificador").val("TE-" + fecha.getDate() + fecha.getSeconds() + fecha.getMilliseconds());
 
 
-//------------------------ funcion para abrir la ventana para escanear documentos ----------------------------
+//funcion para abrir la ventana para escanear documentos
 function Scaner() {
     window.open('https://reclamosgt.unitypromotores.com/Scanner/scannerDocumentos.aspx?codigo='+ $("#identificador").val(),'','width=350,height=550,left=50,top=50,toolbar=yes');
 }
 
+//funcion para llevar a la encuesta
+function encuesta(){
+    window.location.href="https://encuestas.unitypromotores.com/cabina?id=" + $("#identificador").val();
+}
+
+//funcion para abrir y cerrar el side
 function side(){
     if ($('#sidebar').hasClass('active')) {
         $("#sidebar").removeClass("active");
