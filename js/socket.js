@@ -42,7 +42,7 @@ socket.onmessage = function (event) {
 
   if (text.Mensaje === "Telus") {
     $("#moderador").attr("src", "https://whereby.com/unitygt");
-    $("#iconoEmpresa").attr("src", "img/Telus.jpg");
+    $("#iconoEmpresa").attr("src", "img/unity.png");
     $("#nombre").text(text.Nombre);
     $("#telefono").text("Telefono: " + text.Telefono);
     $("#empresa").text("Empresa: " + text.Mensaje);

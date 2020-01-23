@@ -27,7 +27,7 @@ iframe {
 h1 {
 color: white;
 text-align: center;
-font-size: 30px;
+font-size: 22px;
 padding-top: 20px;
 font-family: nunito;
 }
@@ -69,13 +69,13 @@ body{
 .opciones{
   font-size: 60px;
   color: white;
-  margin: 15px;
+  margin: 8px;
 }
 
 .opciones2{
-  font-size: 100px;
+  font-size: 50px;
   color: white;
-  margin: 15px;
+  margin: 8px;
 }
 
 
