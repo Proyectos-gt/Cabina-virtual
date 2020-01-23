@@ -34,14 +34,14 @@ function OpenVideo() {
       // Show paused UI.
     });
   }
-   VideoModerador = window.open('https://appear.in/unitypromotoresgt', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
+   VideoModerador = window.open('https://whereby.com/unitygt', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
 }
 
 socket.onmessage = function (event) {
   text = JSON.parse(event.data);
 
   if (text.Mensaje === "Telus") {
-    $("#moderador").attr("src", "https://appear.in/unitypromotoresgt");
+    $("#moderador").attr("src", "https://whereby.com/unitygt");
     $("#iconoEmpresa").attr("src", "img/Telus.jpg");
     $("#nombre").text(text.Nombre);
     $("#telefono").text("Telefono: " + text.Telefono);
