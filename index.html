@@ -92,14 +92,14 @@
             <div class="container-fluid h-100">
                 <div id="video" class="row h-100">
                     <div class="col-lg-12 d-flex flex-lg-column flex-sm-column align-items-center justify-content-center">
-                        <h1 id="titulollamada">Iniciar Video Conferencia</h1>
+                        <h1>Iniciar Video Conferencia</h1>
                         <h1 id="codigollamada"></h1>
                     </div>
-                    <div id="menu"
-                        class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
+                    <div id="menu" class="col-lg-12 d-flex flex-lg-row flex-sm-column align-items-center justify-content-center">
+                        <h1 id="Finalizarllamada" class="d-none"  >Finalizar Llamada</h1>
+
                         <a id="sidebarCollapse" href="javascript:void(0)">
-                            <img id="icono" src="img/face.png" width="75%" class="sombra"
-                                title="iniciar una video llamada" />
+                            <img id="icono" src="img/face.png" width="75%" class="sombra" title="iniciar una video llamada" />
                         </a>
                         <a href="javascript:Scaner()" data-role="disabled">
                             <img id="BotonScanner" src="img/Gestiones.png" width="75%" class="sombra"
@@ -150,8 +150,23 @@
     <script src="/js/socket.js"></script>
     <script src="/js/utils.js"></script>
     <script>
-        var video;
+        (function ($) {
+            $.get = function (key) {
+                key = key.replace(/[\[]/, '\\[');
+                key = key.replace(/[\]]/, '\\]');
+                var pattern = "[\\?&]" + key + "=([^&#]*)";
+                var regex = new RegExp(pattern);
+                var url = unescape(window.location.href);
+                var results = regex.exec(url);
+                if (results === null) {
+                    return null;
+                } else {
+                    return results[1];
+                }
+            }
+        })(jQuery);
 
+        var video;
         $('#name').keypress(function () {
             if ($('#name').val() !== '') {
                 $('#enviar').attr('style', 'display:');
@@ -166,7 +181,14 @@
         }
 
         function OpenVideo() {
-            video = window.open('https://whereby.com/unitygt', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
+            var empresa = $.get("id");
+            if(empresa === "Telus" || empresa === "Promotores") {
+                video = window.open('https://whereby.com/unitypromotores-sala-1', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
+            }
+
+            else if(empresa === "Pronico" || empresa === "Tv-azteca"){
+                video = window.open('https://whereby.com/unitypromotores-sala-2', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
+            }
         }
 
         $('#enviar').on('click', function () {

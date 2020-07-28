@@ -20,7 +20,7 @@ function closeWin() {
   VideoModerador.close();
 }
 
-function OpenVideo(empresa) {
+function OpenVideo() {
   var playPromise = alarma.play();
    
   if (playPromise !== undefined) {
@@ -30,13 +30,7 @@ function OpenVideo(empresa) {
     });
   }
 
-  if(empresa === "Telus" || empresa === "Promotores") {
-    VideoModerador = window.open('https://whereby.com/unitypromotores-sala-1', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
-  }
-
-  else if(empresa === "Pronico" || empresa === "Tv-azteca"){
-    VideoModerador = window.open('https://whereby.com/unitypromotores-sala-2', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
-  }
+  VideoModerador = window.open('https://whereby.com/unitypromotores-sala-1', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
 }
 
 socket.onmessage = function (event) {
@@ -52,20 +46,7 @@ socket.onmessage = function (event) {
     $("#buscar-codigo").text(text.Codigo);
     $("#tipo").text("Tipo: " + text.Tipo);
 
-    OpenVideo(text.Mensaje);
-  }
-
-  else if(text.Mensaje === "Pronico" || text.Mensaje === "Tv-azteca"){
-    //$("#moderador").attr("src", "https://whereby.com/unitypromotores-sala-2");
-    $("#iconoEmpresa").attr("src", "img/unity.png");
-    $("#nombre").text(text.Nombre);
-    $("#telefono").text("Telefono: " + text.Telefono);
-    $("#empresa").text("Empresa: " + text.Mensaje);
-    $("#codigo").text("Codigo: " + text.Codigo);
-    $("#buscar-codigo").text(text.Codigo);
-    $("#tipo").text("Tipo: " + text.Tipo);
-
-    OpenVideo(text.Mensaje);
+    OpenVideo();
   }
 }
 
@@ -91,9 +72,7 @@ $('#enviar').on('click', function () {
       "nombre": $('#name').val(),
       "correo": $('#email').val(),
       "telefono": $('#phone').val(),
-      "codigo": $('#identificador').val(),
-      "empresa": $.get("id"),
-      "motivo": $("#ddlOpciones option:selected").text()
+      "codigo": $('#identificador').val()
     },
   ).done(function () {
     setTimeout(

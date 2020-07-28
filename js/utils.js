@@ -22,14 +22,14 @@ $('#sidebarCollapse').on('click', function (e) {
         $('#menu').removeClass('flex-lg-row');
         $('#menu').addClass('flex-lg-column');
 
-        $('#titulollamada').text('Finalizar Llamada');
+        $('#Finalizarllamada').removeClass('d-none');
         $('#codigollamada').text("Codigo: " + $('#identificador').val());
     }
 
     else {
        
         $("#formulario").hide();
-        $("#titulollamada").text("Iniciar Video Llamada");
+        $("#Finalizarllamada").addClass("d-none");
         
         $("#icono").attr("src", "img/face.png");
         $("#icono").attr("style", "padding: 0px;");
