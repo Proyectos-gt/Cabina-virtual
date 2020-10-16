@@ -36,7 +36,7 @@ function OpenVideo() {
 socket.onmessage = function (event) {
   text = JSON.parse(event.data);
 
-  if(text.Mensaje === "Tv-azteca"){
+  if(text.Mensaje === "BAC" || text.Mensaje === "ICS" ){
     //$("#moderador").attr("src", "https://whereby.com/unitypromotores-sala-2");
     $("#iconoEmpresa").attr("src", "img/unity.png");
     $("#nombre").text(text.Nombre);

@@ -30,11 +30,11 @@ function OpenVideo(empresa) {
     });
   }
 
-  if(empresa === "Telus" || empresa === "Promotores") {
+  if(empresa === "Telus" || empresa === "Promotores" || empresa === "Tv-azteca" || empresa === "Avianca") {
     VideoModerador = window.open('https://whereby.com/unitypromotores-sala-1', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
   }
 
-  else if(empresa === "Tv-azteca"){
+  else if(empresa === "ICS" || empresa === "BAC"){
     VideoModerador = window.open('https://whereby.com/unitypromotores-sala-2', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
   }
 
@@ -42,20 +42,11 @@ function OpenVideo(empresa) {
     VideoModerador = window.open('https://whereby.com/unitypromotores-sala-3', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
   }
 
-  else if(empresa === "Avianca"){
-    VideoModerador = window.open('https://whereby.com/unitypromotores-sala-4', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
-  }
-
-  else if(empresa === "BAC"){
-    VideoModerador = window.open('https://whereby.com/unitypromotores-sala-4', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
-  }
 }
 
 socket.onmessage = function (event) {
-  text = JSON.parse(event.data);
+    text = JSON.parse(event.data);
 
-  if (text.Mensaje === "Telus" || text.Mensaje === "Promotores") {
-    //$("#moderador").attr("src", "https://whereby.com/unitypromotores-sala-1");
     $("#iconoEmpresa").attr("src", "img/unity.png");
     $("#nombre").text(text.Nombre);
     $("#telefono").text("Telefono: " + text.Telefono);
@@ -65,46 +56,6 @@ socket.onmessage = function (event) {
     $("#tipo").text("Tipo: " + text.Tipo);
 
     OpenVideo(text.Mensaje);
-  }
-
-  else if(text.Mensaje === "Pronico" || text.Mensaje === "Tv-azteca"){
-    //$("#moderador").attr("src", "https://whereby.com/unitypromotores-sala-2");
-    $("#iconoEmpresa").attr("src", "img/unity.png");
-    $("#nombre").text(text.Nombre);
-    $("#telefono").text("Telefono: " + text.Telefono);
-    $("#empresa").text("Empresa: " + text.Mensaje);
-    $("#codigo").text("Codigo: " + text.Codigo);
-    $("#buscar-codigo").text(text.Codigo);
-    $("#tipo").text("Tipo: " + text.Tipo);
-
-    OpenVideo(text.Mensaje);
-  }
-
-  else if(text.Mensaje === "Avianca"){
-    //$("#moderador").attr("src", "https://whereby.com/unitypromotores-sala-4");
-    $("#iconoEmpresa").attr("src", "img/unity.png");
-    $("#nombre").text(text.Nombre);
-    $("#telefono").text("Telefono: " + text.Telefono);
-    $("#empresa").text("Empresa: " + text.Mensaje);
-    $("#codigo").text("Codigo: " + text.Codigo);
-    $("#buscar-codigo").text(text.Codigo);
-    $("#tipo").text("Tipo: " + text.Tipo);
-
-    OpenVideo(text.Mensaje);
-  }
-
-  else if(text.Mensaje === "BAC"){
-    //$("#moderador").attr("src", "https://whereby.com/unitypromotores-sala-5");
-    $("#iconoEmpresa").attr("src", "img/unity.png");
-    $("#nombre").text(text.Nombre);
-    $("#telefono").text("Telefono: " + text.Telefono);
-    $("#empresa").text("Empresa: " + text.Mensaje);
-    $("#codigo").text("Codigo: " + text.Codigo);
-    $("#buscar-codigo").text(text.Codigo);
-    $("#tipo").text("Tipo: " + text.Tipo);
-
-    OpenVideo(text.Mensaje);
-  }
 }
 
 socket.onclose = function (event) {
