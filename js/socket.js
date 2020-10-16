@@ -30,23 +30,24 @@ function OpenVideo(empresa) {
     });
   }
 
-  if(empresa === "Telus" || empresa === "Promotores" || empresa === "Tv-azteca" || empresa === "Avianca") {
+  if(empresa === "Telus" || empresa === "Promotores" || empresa === "Tv-azteca" || empresa === "Avianca" ) {
     VideoModerador = window.open('https://whereby.com/unitypromotores-sala-1', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
   }
 
-  else if(empresa === "ICS" || empresa === "BAC"){
+  if(empresa === "BAC" || empresa === "ICS") {
     VideoModerador = window.open('https://whereby.com/unitypromotores-sala-2', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
   }
 
   else if(empresa === "Pronico"){
     VideoModerador = window.open('https://whereby.com/unitypromotores-sala-3', "ventana1", "width=750,height=550,scrollbars=NO,location=NO");
   }
-
 }
 
 socket.onmessage = function (event) {
-    text = JSON.parse(event.data);
+  text = JSON.parse(event.data);
 
+  if (text.Mensaje === "Telus" || text.Mensaje === "Promotores" || text.Mensaje === "Telus" || text.Mensaje === "Promotores") {
+    //$("#moderador").attr("src", "https://whereby.com/unitypromotores-sala-1");
     $("#iconoEmpresa").attr("src", "img/unity.png");
     $("#nombre").text(text.Nombre);
     $("#telefono").text("Telefono: " + text.Telefono);
@@ -56,6 +57,33 @@ socket.onmessage = function (event) {
     $("#tipo").text("Tipo: " + text.Tipo);
 
     OpenVideo(text.Mensaje);
+  }
+
+  else if(text.Mensaje === "BAC" || text.Mensaje === "ICS"){
+    //$("#moderador").attr("src", "https://whereby.com/unitypromotores-sala-2");
+    $("#iconoEmpresa").attr("src", "img/unity.png");
+    $("#nombre").text(text.Nombre);
+    $("#telefono").text("Telefono: " + text.Telefono);
+    $("#empresa").text("Empresa: " + text.Mensaje);
+    $("#codigo").text("Codigo: " + text.Codigo);
+    $("#buscar-codigo").text(text.Codigo);
+    $("#tipo").text("Tipo: " + text.Tipo);
+
+    OpenVideo(text.Mensaje);
+  }
+
+  else if(text.Mensaje === "Pronico"){
+    //$("#moderador").attr("src", "https://whereby.com/unitypromotores-sala-2");
+    $("#iconoEmpresa").attr("src", "img/unity.png");
+    $("#nombre").text(text.Nombre);
+    $("#telefono").text("Telefono: " + text.Telefono);
+    $("#empresa").text("Empresa: " + text.Mensaje);
+    $("#codigo").text("Codigo: " + text.Codigo);
+    $("#buscar-codigo").text(text.Codigo);
+    $("#tipo").text("Tipo: " + text.Tipo);
+
+    OpenVideo(text.Mensaje);
+  }
 }
 
 socket.onclose = function (event) {
